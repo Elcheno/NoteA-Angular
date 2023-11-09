@@ -1,0 +1,46 @@
+.navbarParent{
+    display: flex;
+    width: 100vw;
+    min-height: 60px;
+    flex-flow: row nowrap;
+    background-color: rgb(242, 247, 251);
+    justify-content: space-between;
+    padding: 0 1em 0 0;
+}
+
+.navbar{
+  background-color: rgb(242, 247, 251)!important;
+}
+
+#navDiv{
+  flex-flow:wrap!important;
+  row-gap: 1.2em!important;
+  column-gap: 0!important;
+}
+
+.navbar a{
+  color: rgba(0, 0, 0, 0.5);
+  text-decoration: none;
+  font-size: 1.5em;
+}
+
+.navbar-nav{
+  column-gap: 1em;
+}
+
+.navbar>div:first-child{
+    display: flex;
+    flex-flow: row nowrap;
+    column-gap: 1.2rem;
+    align-items: center;
+}
+
+.navbar>div>div>a{
+    color: rgba(0, 0, 0, 0.5);
+    text-decoration: none;
+    font-size: 1.5em;
+}
+
+.active{
+    color: rgb(255, 113, 137)!important;
+}

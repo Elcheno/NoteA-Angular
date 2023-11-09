@@ -1,0 +1,21 @@
+
+<form [formGroup]="form" (ngSubmit)="submit()" class="form">
+
+  <input type="hidden" formControlName="id">
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Titulo</mat-label>
+    <input matInput placeholder="nota1" value="" formControlName="title" maxlength="20">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Descripción</mat-label>
+    <textarea matInput placeholder="descripcion1" formControlName="description"></textarea>
+  </mat-form-field>
+
+  <div>
+    <button id="btnSubmit" type="submit" mat-raised-button [disabled]="this.form.status!='VALID'">GUARDAR</button>
+    <button type="button" mat-raised-button (click)="reset()">RESET</button>
+  </div>
+
+</form>

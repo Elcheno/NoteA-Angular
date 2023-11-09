@@ -1,0 +1,56 @@
+.parentItem{
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 25px;
+}
+
+.item{
+    display: grid;
+    grid-template-columns: 60% 40%;
+}
+
+.item-info, .item-controls{
+    display: flex;
+    flex-flow: row nowrap;
+    column-gap: 2rem;
+}
+
+.item-info span{
+    overflow-x: hidden;
+}
+
+.item-controls, #btnMoreOption{
+    justify-self: end;
+}
+
+button{
+    height: min-content;
+    width: min-content;
+    box-shadow: none;
+}
+
+button:hover{
+    box-shadow: none;
+}
+
+.item-controls button:first-of-type{
+    background-color: rgb(255, 113, 137);
+}
+
+.item-controls button:last-of-type{
+    background-color: rgb(118, 118, 118);
+}
+
+#btnMoreOption{
+    background-color: rgb(255, 113, 137);
+    border: none;
+    border-radius: 100px;
+    color: white;
+    display: flex;
+    padding: 5px;
+}
+
+#mobileBtnOption{
+    flex-flow: column;
+    padding: .5em;
+    row-gap: 1em;
+}

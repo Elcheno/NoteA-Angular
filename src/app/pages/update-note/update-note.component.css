@@ -1,0 +1,15 @@
+.parent{
+    display: flex;
+}
+
+.card{
+    margin: auto;
+    max-width: 400px;
+    width: 400px;
+    margin-top: 1em;
+}
+
+.breadcrum{
+    color: rgb(112, 112, 112);
+    margin: .2em 0 .2em 1em;
+}

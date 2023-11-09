@@ -1,0 +1,11 @@
+.breadcrum{
+    color: rgb(112, 112, 112);
+    margin: .2em 0 .2em 1em;
+}
+
+.listItem{
+    display: flex;
+    flex-flow: column;
+    row-gap: .2em;
+    padding: .5em;
+}

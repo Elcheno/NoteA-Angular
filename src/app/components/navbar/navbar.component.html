@@ -1,0 +1,33 @@
+<div class="navbarParent">
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid" id="navDiv">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a routerLink="/home" routerLinkActive="active">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a routerLink="/notes" routerLinkActive="active">Notas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a routerLink="/newNote" routerLinkActive="active">Nueva nota</a>
+                    </li>
+                    <li class="nav-item">
+                        <a routerLink="/about" routerLinkActive="active">Acerca de</a>
+                    </li>
+                    <li class="nav-item" *ngIf="checkLogin()">
+                        <a routerLink="/login" routerLinkActive="active">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>        
+    </nav>
+
+    <div id="profile"><app-profile></app-profile></div>
+
+</div>

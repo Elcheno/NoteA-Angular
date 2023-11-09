@@ -1,0 +1,24 @@
+<mat-list-item role="listitem" class="parentItem">
+    <section class="item">
+        <div class="item-info">
+            <span>{{note.title}}</span>
+            <span>{{note.description}}</span>
+        </div>
+        <div class="item-controls d-none d-md-flex">
+            <button (click)="editNoteFn(note)" mat-fab extended color="primary"><mat-icon>edit</mat-icon>Editar</button>
+            <button (click)="removeNoteFn(note)" mat-fab extended color="warn"><mat-icon>delete</mat-icon>Borrar</button>
+        </div>
+
+        <div class="item-controls d-md-none">
+            <button id="btnMoreOption" [matMenuTriggerFor]="menu" matRipple>
+                <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+                <div class="item-controls" id="mobileBtnOption">
+                    <button (click)="editNoteFn(note)" mat-fab extended color="primary"><mat-icon>edit</mat-icon>Editar</button>
+                    <button (click)="removeNoteFn(note)" mat-fab extended color="warn"><mat-icon>delete</mat-icon>Borrar</button>
+                </div>
+            </mat-menu>
+        </div>
+    </section>
+</mat-list-item>

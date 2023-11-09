@@ -1,0 +1,25 @@
+<ng-container *ngIf="user; else elseBlock">
+    <div class="profile">  
+        <!--<p>{{user.info.name}}</p> -->  
+        <button id="btnLogOut" [matMenuTriggerFor]="menu" matRipple><mat-icon>arrow_drop_down</mat-icon></button>
+        <img [src]="user['photoURL']" alt="userIMG" id="userPicture" height="50px">
+    </div>
+
+    <mat-menu #menu="matMenu">
+        <div class="dropDown_menu">
+            <div>
+                <img [src]="user['photoURL']" alt="userIMG">
+            </div>
+            <div>
+                <p>{{user['displayName']}}</p>
+                <p>{{user['email']}}</p>
+            </div>
+            <button (click)="logOut()" mat-button matRipple>LOGOUT</button>
+        </div>
+    </mat-menu>
+    
+</ng-container>
+
+<ng-template #elseBlock>
+    <p>No has iniciado sesion</p>
+</ng-template>

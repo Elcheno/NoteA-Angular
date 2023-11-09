@@ -1,0 +1,21 @@
+.form{
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    max-width: 325px;
+}
+
+.form>div{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+}
+
+#btnSubmit{
+    background-color: rgb(255, 113, 137);
+    color: white;
+}
+
+#btnSubmit:disabled{
+    background-color: pink;
+}
