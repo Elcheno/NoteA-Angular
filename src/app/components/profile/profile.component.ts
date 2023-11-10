@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from 'firebase/auth';
 import { UserService } from 'src/app/services/user.service';
 
@@ -13,7 +14,8 @@ export class ProfileComponent {
   public userIMG!:string;
 
   constructor(
-    private userService: UserService
+    private userService: UserService,
+    private router: Router
   ){} 
 
   ngOnInit(){
@@ -25,7 +27,7 @@ export class ProfileComponent {
   logOut(){
     this.userService.singOut()
     .then(() => {
-      this.userService.setUserData();
+      this.router.navigate(['/login']);
     })
     .catch(err => console.error(err));
   }

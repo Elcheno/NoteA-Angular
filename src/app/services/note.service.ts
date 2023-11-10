@@ -3,6 +3,7 @@ import { iNote } from '../model/interface';
 import { AngularFirestore, AngularFirestoreCollection, DocumentReference  } from '@angular/fire/compat/firestore';
 import { BehaviorSubject } from 'rxjs';
 import { UserService } from './user.service';
+import { User } from 'firebase/auth';
 
 @Injectable({
   providedIn: 'root'
@@ -10,16 +11,38 @@ import { UserService } from './user.service';
 export class NoteService {
 
   private _data:iNote[] = [] // Array donde almacenaremos todas las notas en nuestro servicio
-  private _dbPath = `/${this.userService.getUserData()?.uid}`; // Ruta del documento de la db
+  private _userData:User | null = null;
   private _notesRef!: AngularFirestoreCollection<any>; // Variable donde injectaremos la asociación de la db, atacaremos a esta variable para acceder a la db
-
   public dataSubject = new BehaviorSubject<iNote[] | null>([]);
 
   constructor(
     private db: AngularFirestore,
     private userService: UserService
     ) {
-    this._notesRef = this.db.collection(this._dbPath); // Asociación a la db
+    
+    this.userService.userData$.subscribe((user) => {
+      this._userData = user;
+      this._data = [];
+
+      if(user){
+        let _dbPath = `/${this._userData?.uid}`;
+        this._notesRef = this.db.collection(_dbPath);
+
+        this._notesRef.get().subscribe(res => {
+          let docs = res.docs;
+          this._data = docs.map( response => {
+            return {id:response.id,...response.data()}
+          })
+          this.dataSubject.next(this._data);
+        })
+      }
+    })
+  }
+
+  ngOnInit(){
+    let _dbPath = `/${this._userData?.uid}`; // Ruta del documento de la db
+
+    this._notesRef = this.db.collection(_dbPath); // Asociación a la db
 
     // Cargar todas las notas del servidor
     this._notesRef.get().subscribe(res => {
@@ -28,11 +51,6 @@ export class NoteService {
         return {id:response.id,...response.data()}
       })
       this.dataSubject.next(this._data);
-      // Lo mismo pero con un forEach de forma mas sencilla
-      /**docs.forEach(d => { 
-        let newd = {id:d.id,...d.data()}
-        this._data.push(newd);
-      })**/
     })
   }
 
@@ -76,11 +94,4 @@ export class NoteService {
   getNote(id:string){
     return this._data.find(note => note.id === id);
   }
-
-  /**public createNoteWithKey(key:string, newNote:iNote){ // Esta funcion guardaria una nota en la base de datos con la id que nosotros le pongamos
-    return this.notesRef.doc(key).set(newNote, {merge: true});
-  }**/
-
 }
-// Comando para instalar las herramientas de firebase
-// npm install -g firebase-tools

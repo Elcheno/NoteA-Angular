@@ -1,11 +1,15 @@
-<div class="breadcrum"> 
-    <h2>Actualizando nota</h2>
-</div>
-
-<div class="parent">
-    <mat-card class="card">
-        <mat-card-content>
-            <app-form-note (onSubmit)="onSubmit($event)" [note]="note"></app-form-note>
-        </mat-card-content>
-    </mat-card>
-</div>
+<main>
+    <section>
+        <div class="breadcrum"> 
+            <h2>Actualizando nota</h2>
+        </div>
+        
+        <div class="parent">
+            <mat-card class="card">
+                <mat-card-content>
+                    <app-form-note (onSubmit)="onSubmit($event)" [note]="note"></app-form-note>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </section>
+</main>

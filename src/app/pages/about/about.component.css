@@ -1,4 +1,195 @@
-.breadcrum{
-    color: rgb(112, 112, 112);
-    margin: .2em 0 .2em 1em;
+main{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
 }
+
+section{
+    text-align: center;
+    height: 100vh;
+}
+
+section > div{
+    font-size: 25px;
+    margin: 0 15vw 0 15vw;
+    line-height: 30px;
+}
+
+.notea{
+    color: #0084ff;
+    font-weight: bold;
+}
+
+h1{
+    color: white;
+    font-weight: bold;
+    font-size: 100px;
+    line-height: 1.1;
+    position: relative;
+}
+
+h1::before{
+    background: linear-gradient(90deg, var(--start-color), var(--end-color));
+    content: var(--content);
+    position: absolute;
+    inset: 0;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+ul{
+    margin-top: 10vh;
+    list-style-type: none;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+li{
+    width: 20vw;
+    background-color: white;
+    border-radius: 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    box-shadow: 6px 6px 5px rgba(0, 0, 0, 0.368);
+}
+
+li > h2{
+    color: #00b0aa;
+    font-weight: bold;
+    
+}
+
+li > p{
+    font-size: 20px;
+}
+
+.angular{
+    color: #c01e1e;
+    font-weight: bold;
+}
+
+.personal{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    margin: 0!important;
+    height:70vh;
+    align-items: center;
+}
+
+.personal img{
+    border-radius: 200px;
+}
+
+.personal > div:last-child{
+    display: flex;
+    flex-flow: column;
+    row-gap: 2em;
+}
+
+
+
+
+
+#btnLinkedin{
+    background-color: #fff;
+    border: 1px solid #0077b5;
+    padding: 5px;
+    position: relative;
+    width: 9.2em;
+    height: 3em;
+    transition: 0.5s;
+    font-size: 17px;
+    border-radius: 0.4em;
+  }
+  
+  #btnLinkedin p {
+    position: absolute;
+    top: 0.4em;
+    left: 1.2em;
+    margin: 0;
+    padding: 0;
+    transition: .5s;
+    color: #0077b5;
+  }
+  
+  #btnLinkedin svg {
+    position: absolute;
+    top: 0.45em;
+    right: 0.5em;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    transition: 0.5s;
+    height: 1em;
+    fill: #fff
+  }
+  
+  #btnLinkedin:hover p {
+    left: 0.6em;
+    color: #fff
+  }
+  
+  #btnLinkedin:hover svg {
+    opacity: 1;
+  }
+  
+  #btnLinkedin:hover {
+    background-color: #0077b5;
+  }
+
+
+
+
+
+
+
+  #btnGithub{
+    background-color: #fff;
+    border: 1px solid #000000;
+    padding: 5px;
+    position: relative;
+    width: 9.2em;
+    height: 3em;
+    transition: 0.5s;
+    font-size: 17px;
+    border-radius: 0.4em;
+  }
+  
+  #btnGithub p {
+    position: absolute;
+    top: 0.4em;
+    left: 1.2em;
+    margin: 0;
+    padding: 0;
+    transition: .5s;
+    color: #000000;
+  }
+  
+  #btnGithub svg {
+    position: absolute;
+    top: 0.45em;
+    right: 0.5em;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    transition: 0.5s;
+    height: 1em;
+    fill: #fff
+  }
+  
+  #btnGithub:hover p {
+    left: 0.6em;
+    color: #fff
+  }
+  
+  #btnGithub:hover svg {
+    opacity: 1;
+  }
+  
+  #btnGithub:hover {
+    background-color: #000000;
+  }
+  

@@ -22,9 +22,7 @@ export class LoginComponent {
 
   loginGoogle(){
     this.userService.logInWithGoogle()
-      .then(response => {
-        console.log(response);
-        this.userService.setUserData();
+      .then(() => {
         this.router.navigate(['/notes']);
       })
       .catch(err => console.error(err));

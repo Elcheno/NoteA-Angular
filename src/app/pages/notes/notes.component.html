@@ -1,33 +1,26 @@
 
-<div class="breadcrum"> 
-    <h2>Notas</h2>
+<div class="parent">
+    <div class="breadcrum"> 
+        <h2>Notas</h2>
+    </div>
+    
+    <ng-container *ngIf="noteList.length;else elseBlock">
+        <mat-list role="list" class="listItem">
+            <ng-container *ngFor="let note of noteList">
+                <app-note 
+                [note]="note" 
+                (removeNote)="removeNoteFn($event)" 
+                (updateNote)="editNoteFn($event)">
+                </app-note>
+               <!-- <mat-divider></mat-divider> --> 
+            </ng-container>
+        </mat-list>
+    </ng-container>
+    
+    
+    
+    
+    <ng-template #elseBlock>
+        <h4>No tienes ninguna nota creada</h4>
+    </ng-template>
 </div>
-
-<ng-container *ngIf="noteList.length;else elseBlock">
-    <mat-list role="list" class="listItem">
-        <ng-container *ngFor="let note of noteList">
-            <app-note 
-            [note]="note" 
-            (removeNote)="removeNoteFn($event)" 
-            (updateNote)="editNoteFn($event)">
-            </app-note>
-           <!-- <mat-divider></mat-divider> --> 
-        </ng-container>
-    </mat-list>
-</ng-container>
-
-
-
-
-<ng-template #elseBlock>
-    <h4>No tienes ninguna nota creada</h4>
-</ng-template>
-
-<!-- 
-<app-note 
-    *ngFor="let note of noteList" 
-    [note]="note" 
-    (removeNote)="removeNoteFn($event)" 
-    (updateNote)="editNoteFn($event)">
-</app-note> 
--->

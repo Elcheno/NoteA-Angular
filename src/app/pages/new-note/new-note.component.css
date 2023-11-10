@@ -1,5 +1,6 @@
 .parent{
     display: flex;
+    margin-top: 20vh;
 }
 
 .card{

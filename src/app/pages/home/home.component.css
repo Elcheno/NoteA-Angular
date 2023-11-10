@@ -1,4 +1,42 @@
-.breadcrum{
-    color: rgb(112, 112, 112);
-    margin: .2em 0 .2em 1em;
+.parent{
+    display: grid;
+    place-content: center;
+    min-height: 75vh;
+    margin-top: 8vh;
+}
+
+h1{
+    font-size: 180px;
+    font-weight: bold;
+    letter-spacing: -.05em;
+    text-align: center;
+    
+}
+
+span{
+    color: rgb(255, 255, 255);
+    display: block;
+    line-height: 1.1;
+    position: relative;
+    padding: 0 18px;
+}
+
+span::before{
+    background: linear-gradient(90deg, var(--start-color), var(--end-color));
+    content: var(--content);
+    position: absolute;
+    inset: 0;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: animated 6s infinite;
+    animation-delay: var(--delay);
+}
+
+@keyframes animated {
+    0%, 100%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0;
+    }
 }
