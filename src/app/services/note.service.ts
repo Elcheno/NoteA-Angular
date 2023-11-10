@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { iNote } from '../model/interface';
-import { AngularFirestore, AngularFirestoreCollection, DocumentReference } from '@angular/fire/compat/firestore';
+import { AngularFirestore, AngularFirestoreCollection, DocumentReference  } from '@angular/fire/compat/firestore';
 import { BehaviorSubject } from 'rxjs';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,12 +10,15 @@ import { BehaviorSubject } from 'rxjs';
 export class NoteService {
 
   private _data:iNote[] = [] // Array donde almacenaremos todas las notas en nuestro servicio
-  private _dbPath = '/notes'; // Ruta del documento de la db
+  private _dbPath = `/${this.userService.getUserData()?.uid}`; // Ruta del documento de la db
   private _notesRef!: AngularFirestoreCollection<any>; // Variable donde injectaremos la asociación de la db, atacaremos a esta variable para acceder a la db
 
   public dataSubject = new BehaviorSubject<iNote[] | null>([]);
 
-  constructor(private db: AngularFirestore) {
+  constructor(
+    private db: AngularFirestore,
+    private userService: UserService
+    ) {
     this._notesRef = this.db.collection(this._dbPath); // Asociación a la db
 
     // Cargar todas las notas del servidor
